@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
@@ -49,13 +50,25 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
+    config (1.3.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.1.1)
     debug_inspector (0.0.2)
+    deep_merge (1.1.1)
+    domain_name (0.5.20160826)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (0.7.0)
+    inline_svg (0.11.0)
+      activesupport (>= 4.0)
+      loofah (>= 2.0)
+      nokogiri (~> 1.6)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -77,6 +90,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.1)
     multi_json (1.12.1)
+    netrc (0.11.0)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -96,6 +110,24 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.0.1)
       sprockets-rails (>= 2.0.0)
+    rails-assets-angular (1.5.8)
+    rails-assets-angular-animate (1.5.8)
+      rails-assets-angular (= 1.5.8)
+    rails-assets-angular-aria (1.5.8)
+      rails-assets-angular (= 1.5.8)
+    rails-assets-angular-material (1.1.1)
+      rails-assets-angular (>= 1.4.8, < 2)
+      rails-assets-angular-animate (>= 1.4.8, < 2)
+      rails-assets-angular-aria (>= 1.4.8, < 2)
+      rails-assets-angular-messages (>= 1.4.8, < 2)
+    rails-assets-angular-material-icons (0.7.1)
+      rails-assets-angular (> 1.3)
+    rails-assets-angular-messages (1.5.8)
+      rails-assets-angular (= 1.5.8)
+    rails-assets-angular-resource (1.5.8)
+      rails-assets-angular (= 1.5.8)
+    rails-assets-ng-file-upload (12.2.12)
+      rails-assets-angular (> 1.2.0)
     rails-dom-testing (2.0.1)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6.0)
@@ -111,6 +143,10 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    rest-client (2.0.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -141,6 +177,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
     web-console (3.3.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -156,11 +195,19 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  config
+  inline_svg
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
+  rails-assets-angular!
+  rails-assets-angular-material!
+  rails-assets-angular-material-icons!
+  rails-assets-angular-resource!
+  rails-assets-ng-file-upload!
+  rest-client
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

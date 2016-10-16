@@ -46,3 +46,24 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+gem 'config'
+
+gem 'inline_svg'
+
+gem 'rest-client'
+
+bower_packages = [
+  "angular",
+  "angular-resource",
+  "angular-material",
+  "angular-material-icons",
+  "ng-file-upload",
+]
+
+source 'https://rails-assets.org' do
+  bower_packages.each do |package|
+    gem "rails-assets-#{package}"
+  end
+end

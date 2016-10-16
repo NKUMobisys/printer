@@ -1,0 +1,97 @@
+<div id="bg">
+  <%= image_tag 'WhsLoZQ' %>
+</div>
+<div ngf-drop ngf-select ng-model="files" class="drop-box file-area" 
+    ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+    accept="application/pdf,text/plain" 
+  ngf-pattern="'application/pdf,text/plain'" id="drop-file-area" ng-show="!print_file">
+  <div id="upload-icon">
+    <ng-md-icon icon="unarchive" size="160"></ng-md-icon>
+  </div>
+  <div class="hint">
+    拖放文件或者点击上传<br>
+    <small>pdf/txt/image</small>
+  </div>
+</div>
+<div id="file-preview" class="file-area" ng-show="print_file && !finished">
+  <div id="file-description">
+    <span id="file-name">{{ print_file.name }}</span><br>
+    <span id="file-size">{{ print_file.size | bytes }}</span>
+  </div>
+  <div id="cancel-file">
+    <div class="icon">
+      <ng-md-icon  icon="delete" size="64" ng-hide="uploading" ng-click="print_file=undefined"></ng-md-icon>
+    </div>
+  </div>
+</div>
+<div id="finished-view" class="file-area" ng-show="finished">
+  <div class="hint" ng-show="!error">
+    <div>打印任务提交完成，请等待打印机响应</div>
+    <md-button class="btn md-primary md-hue-1" ng-click="reset()">还要打印</md-button>
+  </div>
+  <div class="hint" ng-show="error">
+    抱歉！打印机似乎失联了(　´_ゝ｀)  <br>
+    <div id="printer-404-img">
+      <%= image_tag 'printer_404' %>
+    </div>
+    <md-button class="btn md-primary md-hue-1" ng-click="reset(true)">还想试试</md-button>
+  </div>
+</div>
+<div id="console">
+
+  <div id="printer-select" class="noselect">
+    <div id="printer-0" class="printer-block" ng-class="{selected: job.target==0}" ng-click="job.target=0">
+      <%= inline_svg "printer-1.svg", id: "printer-logo" %>
+      <div class="printer-hint left">
+        初号机<br>
+        Lenovo<br>
+        面朝沙发
+      </div>
+    </div>
+    <div id="printer-1" class="printer-block" ng-class="{selected: job.target==1}" ng-click="job.target=1">
+      <%= inline_svg "printer-4.svg", id: "printer-logo" %>
+      <div class="printer-hint">
+        一号机<br>
+        Fuji<br>
+        临近未来
+      </div>
+    </div>
+  </div>
+  <div id="operations">
+    <div id="go-print" ng-show=" can_print() && !uploading" ng-click="upload()"><ng-md-icon icon="check_circle" size="120"></ng-md-icon></div>
+    <div id="waiting-upload" ng-show="uploading"><md-progress-circular md-mode="determinate" class="md-accent md-hue-1" value="{{upload_progress}}" md-diameter="120"></md-progress-circular></div>
+    <div id="settings" ng-click="showPrerenderedDialog($event)" ng-hide="uploading"><ng-md-icon icon="settings" size="48"></ng-md-icon></div>
+  </div>
+</div>
+
+<div id="footer">Some icons are made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+
+<div style="visibility: hidden">
+  <div class="md-dialog-container" id="myDialog">
+    <md-dialog layout-padding id="settings-dialog">
+
+    <form name="job_form">
+      <md-input-container class="md-block">
+        <label>份数(默认1）</label>
+        <input md-no-asterisk type="number" min="0" max="50" name="job_copy" ng-model="job.copy">
+        <div ng-messages="job_form.job_copy.$error">
+          <div ng-message="min">最少打1份！</div>
+          <div ng-message="max">最多打50份！</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>页码(eg. 1-5,8,11-13， 默认全部)</label>
+        <input md-no-asterisk name="job_page" ng-model="job.page">
+        <div ng-messages="job_form.job_page.$error">
+          <div ng-message="wrong-format">页码格式错误</div>
+        </div>
+      </md-input-container>
+      <md-checkbox ng-model="job.private" aria-label="Checkbox 1">
+            私密模式<md-tooltip md-direction="bottom">服务器端将不存储文件</md-tooltip>
+      </md-checkbox>
+    </form>
+
+    </md-dialog>
+  </div>
+</div>

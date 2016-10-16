@@ -1,0 +1,3 @@
+rails g model User sso_id:integer:index account:string name:string nickname:string email:string
+rails g controller Main index
+rails g controller User::Session new create destroy

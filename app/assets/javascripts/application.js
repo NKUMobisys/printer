@@ -13,4 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
+
+//= require angular
+//= require angular-resource
+//= require angular-animate
+//= require angular-aria
+//= require angular-messages
+//= require angular-material
+//= require angular-material-icons
+//= require ng-file-upload
+
+//= require ng_app
 //= require_tree .

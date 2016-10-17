@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_or_create_user
+    # TODO: update uinfo
     return if session[:user_id]
     u = User.new(sso_user_info)
     u.save!

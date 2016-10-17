@@ -13,9 +13,10 @@
 
 #main-top{
   position: relative;
-  margin: 0;
+  margin: -2px 0px;
   $boder-attr: solid 3px transparent;
   $boder-attr-hover: dashed 3px black;
+  border: solid 1px transparent;
 
   #bg {
     position: fixed; 
@@ -28,7 +29,7 @@
   }
 
   .file-area{
-    background-color: rgba(200, 200, 200, .95);
+    background-color: rgba(107, 115, 123, .95);
     position: relative;
     top: 50%;
     margin-top: -360px;
@@ -84,17 +85,17 @@
     #file-name{
       font-size: 28px;
       font-weight: 900;
-      color: darken(#66CCFF, 30%);
+      color: lighten(#66CCFF, 10%);
     }
     #file-size{
       font-size: 16px;
-      color: #233;
+      color: #BBB;
     }
   }
   #cancel-file{
     width: 64px;
     margin: 100px auto;
-    fill: darken(red, 15%);
+    fill: #DE8D8D;
     .icon:hover{
       cursor: pointer; 
     }
@@ -105,7 +106,7 @@
     .hint{
       margin-top: 72px;
       font-size: 36px;
-      color: darken(#CCCCFF, 50%);
+      color: darken(#66CCFF, 10%);
     }
     .btn{
       font-size: 28px;
@@ -123,7 +124,7 @@
   #printer-logo{
     height: $printer-logo-size;
     width: $printer-logo-size;
-    fill: #AAA;
+    fill: #EEE;
   }
   #printer-select{
     width: 100%;
@@ -137,11 +138,11 @@
     padding: 16px 28px;
     position: absolute;
     left: 50%;
-    opacity: 0.8;
+    opacity: 0.9;
     border: solid 2px transparent;
     border-radius: 12px;
     &:hover{
-      opacity: 0.9;
+      opacity: 0.95;
     }
     &:hover, &.selected{
       background-color: white;
@@ -181,21 +182,27 @@
     width: 120px;
     text-align: center;
     #go-print{
-      fill: green;
+      fill: #FFAA33;
       cursor: pointer;
+    }
+    #waiting-upload .md-hue-1 path{
+      stroke: #9AD287;
     }
     #settings{
       fill: #AAA;
       margin-top: 36px;
       cursor: pointer;
+      .error{
+        fill: #A55;
+      }
     }
   }
-  #myDialog{
-    top: 5% !important;
-  }
-  #settings-dialog{
-    padding-top: 32px;
-  }
+  // #myDialog{
+  //   bottom: 0px !important;
+  // }
+  // #settings-dialog{
+  //   padding-top: 32px;
+  // }
 
   #footer{
     opacity: 0.5;

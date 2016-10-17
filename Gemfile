@@ -54,6 +54,8 @@ gem 'inline_svg'
 
 gem 'rest-client'
 
+gem 'nokogiri'
+
 bower_packages = [
   "angular",
   "angular-resource",

@@ -45,4 +45,36 @@ class MainController < ApplicationController
       end
       resp = RestClient.post uri.to_s, zpar
     end
+
+    def print_by_one
+      printer_host = "http://p.newfuture.cc"
+
+      doc = Nokogiri::HTML(open(printer_host))
+
+      form_data = {
+        '__VIEWSTATE': (doc/'#__VIEWSTATE').first['value'],
+        '__VIEWSTATEGENERATOR': (doc/'#__VIEWSTATEGENERATOR').first['value'],
+        '__EVENTVALIDATION': (doc/'#__EVENTVALIDATION').first['value'],
+        'FileUpload': File.new(params["file"].path),
+        pwdTextBox: Settings.one_printer_pwd,
+        copy: 1,
+        button: 'ruaruarua'
+      }
+
+      if page = job_params['page']
+        form_data.merge!({rangeInput: page})
+      end
+
+      if copy = job_params['copy']
+        form_data.merge!({copy: copy})
+      end
+
+      resp = RestClient.post printer_host, form_data
+
+      unless resp.body.match "已经添加"
+        return nil
+      end
+      
+      return resp.code.to_s
+    end
 end

@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/home/darfux/Project/Lab/printer"
+			"path": "/home/darfux/Project/Lab/printer",
+			"folder_exclude_patterns": ["tmp"]
 		}
 	],
 	"settings":

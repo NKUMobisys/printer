@@ -12,11 +12,8 @@
 }
 
 #main-top{
-  position: relative;
-  margin: -2px 0px;
   $boder-attr: solid 3px transparent;
   $boder-attr-hover: dashed 3px black;
-  border: solid 1px transparent;
 
   #bg {
     position: fixed; 

@@ -1,5 +1,5 @@
 <div id="bg">
-  <%= image_tag 'WhsLoZQ' %>
+  <%= image_tag 'WhsLoZQ.png' %>
 </div>
 <div ngf-drop ngf-select ng-model="files" class="drop-box file-area" 
     ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
@@ -32,7 +32,7 @@
   <div class="hint" ng-show="error">
     抱歉！打印机似乎失联了(　´_ゝ｀)<br>
     <div id="printer-404-img">
-      <%= image_tag 'printer_404' %>
+      <%= image_tag 'printer_404.png' %>
     </div>
     <md-button class="btn md-primary md-hue-1" ng-click="reset(true)">还想试试</md-button>
   </div>
@@ -93,7 +93,7 @@
           <div ng-message="pattern">页码格式错误</div>
         </div>
       </md-input-container>
-      <md-checkbox ng-model="job.private" aria-label="Checkbox 1">
+      <md-checkbox ng-model="job.private" aria-label="Checkbox 1" ng-show="false">
             私密模式<md-tooltip md-direction="bottom">服务器端将不存储文件</md-tooltip>
       </md-checkbox>
     </form>

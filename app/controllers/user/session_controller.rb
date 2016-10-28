@@ -1,5 +1,5 @@
 class User::SessionController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create, :create_by_token]
+  skip_before_action :authenticate_user!, only: [:new, :create]
   def new
     sso_login
   end

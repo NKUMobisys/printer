@@ -58,7 +58,13 @@
     </div>
   </div>
   <div id="operations">
-    <div id="go-print" ng-show=" can_print() && !uploading" ng-click="upload()"><ng-md-icon icon="unarchive" size="120"></ng-md-icon><md-tooltip md-direction="top">点我打印</md-tooltip></div>
+    <div id="go-print" ng-show=" can_print() && !uploading" ng-click="upload()">
+      <% unless @current_user.name =~ /皓/ %>
+      <ng-md-icon icon="unarchive" size="120"></ng-md-icon>
+      <% else %>
+      <%= image_tag 'yin.png', id: "printer-logo", size: '120'  %>
+      <% end %>
+      <md-tooltip md-direction="top">点我打印</md-tooltip></div>
     <div id="waiting-upload" ng-show="uploading"><md-progress-circular md-mode="determinate" class="md-accent md-hue-1" value="{{upload_progress}}" md-diameter="120"></md-progress-circular></div>
     <div id="settings" ng-click="showPrerenderedDialog($event)" ng-hide="uploading"><ng-md-icon icon="settings" size="48" ng-class="{error: job_form.$invalid}"></ng-md-icon></div>
   </div>

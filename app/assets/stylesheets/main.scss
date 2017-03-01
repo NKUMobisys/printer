@@ -193,6 +193,37 @@
         fill: #A55;
       }
     }
+
+  }
+
+  #side-hint{
+    position: absolute;
+    text-align: center;
+    margin-top: 250px;
+    left: 50%;
+    margin-left: -70px;
+    width: 160px;
+
+    color: #DDD;
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  #p0-side-hint-img{
+    img{
+      width: 480px;
+      height: auto;
+      border: 1px solid #FCFCFC;
+      border-radius: 32px;
+    }
+  }
+
+  #p1-side-hint{
+    color: #DD2333;
   }
   // #myDialog{
   //   bottom: 0px !important;
@@ -200,6 +231,7 @@
   // #settings-dialog{
   //   padding-top: 32px;
   // }
+
 
   #footer{
     opacity: 0.5;

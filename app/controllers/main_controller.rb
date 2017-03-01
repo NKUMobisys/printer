@@ -47,7 +47,7 @@ class MainController < ApplicationController
     end
 
     def print_by_one
-      printer_host = "http://p.newfuture.cc"
+      printer_host = "http://6.p.newfuture.win"
 
       doc = Nokogiri::HTML(open(printer_host))
 

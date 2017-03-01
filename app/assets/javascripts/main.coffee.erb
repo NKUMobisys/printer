@@ -58,6 +58,16 @@
       clickOutsideToClose: true
     return
 
+  $scope.showPrerenderedDialog2 = (ev) ->
+      $mdDialog.show
+        # controller: DialogController
+        contentElement: '#myDialog2'
+        parent: angular.element(document.body)
+        targetEvent: ev
+        clickOutsideToClose: true
+      return
+
+
   $scope.can_print = ()->
     $scope.job.target != undefined &&
     $scope.job_form.$valid &&

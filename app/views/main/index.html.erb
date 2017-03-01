@@ -68,7 +68,12 @@
     <div id="waiting-upload" ng-show="uploading"><md-progress-circular md-mode="determinate" class="md-accent md-hue-1" value="{{upload_progress}}" md-diameter="120"></md-progress-circular></div>
     <div id="settings" ng-click="showPrerenderedDialog($event)" ng-hide="uploading"><ng-md-icon icon="settings" size="48" ng-class="{error: job_form.$invalid}"></ng-md-icon></div>
   </div>
+  <div id="side-hint" ng-click="showPrerenderedDialog2($event)">需要双面打印？</div>
 </div>
+
+
+
+
 
 <div id="footer">Some icons are made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
@@ -97,6 +102,24 @@
             私密模式<md-tooltip md-direction="bottom">服务器端将不存储文件</md-tooltip>
       </md-checkbox>
     </form>
+
+    </md-dialog>
+  </div>
+</div>
+
+<div style="visibility: hidden">
+  <div class="md-dialog-container" id="myDialog2">
+    <md-dialog layout-padding id="settings-dialog">
+
+      <div id="p0-side-hint">
+        <div>初号机</div>
+        <div id="p0-side-hint-img">
+        <%= image_tag "side_hint" %>
+        </div>
+      </div>
+      <div id="p1-side-hint">
+        一号机容易卡纸，请不要双面打印或使用废纸
+      </div>
 
     </md-dialog>
   </div>

@@ -39,9 +39,9 @@ class MainController < ApplicationController
         file: File.new(params["file"].path),
         password: Settings.zero_printer_pwd
       }
-      [:copy, :page].each do |key|
+      [:copy, :page, :double_sides].each do |key|
         v = job_params[key.to_s]
-        zpar.merge!({key => v}) if v
+        zpar.merge!({key => v}) if v && v!="false"
       end
       resp = RestClient.post uri.to_s, zpar
     end

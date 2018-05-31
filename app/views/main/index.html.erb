@@ -1,9 +1,9 @@
 <div id="bg">
   <%= image_tag 'WhsLoZQ.png' %>
 </div>
-<div ngf-drop ngf-select ng-model="files" class="drop-box file-area" 
+<div ngf-drop ngf-select ng-model="files" class="drop-box file-area"
     ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
-    accept="application/pdf,text/plain" 
+    accept="application/pdf,text/plain"
   ngf-pattern="'application/pdf,text/plain'" id="drop-file-area" ng-show="!print_file">
   <div id="upload-icon">
     <ng-md-icon icon="cloud_queue" size="160"></ng-md-icon>
@@ -68,7 +68,7 @@
     <div id="waiting-upload" ng-show="uploading"><md-progress-circular md-mode="determinate" class="md-accent md-hue-1" value="{{upload_progress}}" md-diameter="120"></md-progress-circular></div>
     <div id="settings" ng-click="showPrerenderedDialog($event)" ng-hide="uploading"><ng-md-icon icon="settings" size="48" ng-class="{error: job_form.$invalid}"></ng-md-icon></div>
   </div>
-  <div id="side-hint" ng-click="showPrerenderedDialog2($event)">需要双面打印？</div>
+  <!-- <div id="side-hint" ng-click="showPrerenderedDialog2($event)">需要双面打印？</div> -->
 </div>
 
 
@@ -98,6 +98,9 @@
           <div ng-message="pattern">页码格式错误</div>
         </div>
       </md-input-container>
+      <md-checkbox ng-model="job.double_sides" aria-label="Checkbox 0">
+            双面打印<md-tooltip md-direction="bottom">仅初号机支持</md-tooltip>
+      </md-checkbox>
       <md-checkbox ng-model="job.private" aria-label="Checkbox 1" ng-show="false">
             私密模式<md-tooltip md-direction="bottom">服务器端将不存储文件</md-tooltip>
       </md-checkbox>

@@ -46,10 +46,38 @@ class MainController < ApplicationController
       resp = RestClient.post uri.to_s, zpar
     end
 
+    # JAVA api by sunjian
     def print_by_one
+      printer_host = "http://6.p.smartlife.space:8080/printer/print"
+
+      form_data = {
+        'file': File.new(params["file"].path),
+        password: 'RUARUARUA',
+        copies: 1,
+      }
+
+      if page = job_params['page']
+        form_data.merge!({range: page})
+      end
+
+      if copy = job_params['copy']
+        form_data.merge!({copies: copy})
+      end
+
+      resp = RestClient.post printer_host, form_data
+
+      unless resp.body.match "true"
+        return nil
+      end
+
+      return resp.code.to_s
+    end
+
+    # .NET api by NewFuture
+    def print_by_one_old
       printer_host = "http://6.p.newfuture.win"
 
-      doc = Nokogiri::HTML(open(printer_host))
+      # doc = Nokogiri::HTML(open(printer_host))
 
       form_data = {
         # '__VIEWSTATE': (doc/'#__VIEWSTATE').first['value'],
